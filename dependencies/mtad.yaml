@@ -1,0 +1,18 @@
+_schema-version: "3.1.0"
+ID: message-ui
+version: 1.0.0
+
+modules:
+  - name: message-ui
+    type: javascript.nodejs
+    requires:
+      - name: message
+        properties:
+          MESSAGE: ~{message} # This will result in an environment variable for the message-ui application.
+  
+  - name: message-provider
+    type: javascript.nodejs
+    provides:
+      - name: message
+        properties:
+          message: "Hi from ${app-name} in ${org}/${space}!" # This will NOT result in an environment variable for the message-provider application.
