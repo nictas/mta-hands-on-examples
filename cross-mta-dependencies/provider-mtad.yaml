@@ -1,0 +1,13 @@
+_schema-version: "3.1.0"
+ID: message-provider
+version: 1.0.0
+
+modules:
+  - name: message-provider
+    type: javascript.nodejs
+    provides:
+      - name: message
+        public: true
+        properties:
+          type: message-provider
+          message: "Hi from ${app-name} in ${org}/${space}!" # This will NOT result in an environment variable for the message-provider application.

@@ -1,0 +1,21 @@
+_schema-version: "3.1.0"
+ID: message-ui
+version: 1.0.0
+
+modules:
+  - name: message-ui
+    type: javascript.nodejs
+    requires:
+      - name: message-providers
+        list: MESSAGES  # This will result in an environment variable for the message-ui application.
+        properties:
+          message: ~{message}
+        parameters:
+          managed: true
+
+resources:
+  - name: message-providers
+    type: configuration
+    parameters:
+      filter:
+        type: message-provider
